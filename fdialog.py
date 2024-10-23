@@ -319,7 +319,7 @@ class FileDialog:
         def open_file(sender, app_data, user_data):
             global last_click_time
             # Multi selection
-            if dpg.is_key_down(dpg.mvKey_Control):
+            if dpg.is_key_down(dpg.mvKey_LControl):
                 if dpg.get_value(sender) is True:
                     self.selected_files.append(user_data[1])
                 else:
@@ -520,7 +520,7 @@ class FileDialog:
 
         def _back(sender, app_data, user_data):
             global last_click_time
-            if dpg.is_key_down(dpg.mvKey_Control):
+            if dpg.is_key_down(dpg.mvKey_LControl):
                 dpg.set_value(sender, False)
             else:
                 dpg.set_value(sender, False)
