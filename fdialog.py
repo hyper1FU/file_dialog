@@ -1,7 +1,7 @@
 # file_dialog v3.0
 # originally designed and created for the Workspace Desktop Interface
 
-# in this version it contais bug fixes and improvements on selecting items (files and folder), new file icons, new option 'show_hidden_files'
+# in this version it contains bug fixes and improvements on selecting items (files and folder), new file icons, new option 'show_hidden_files'
 
 import dearpygui.dearpygui as dpg
 import os
@@ -24,10 +24,10 @@ class FileDialog:
         default_path:           The default path when File dialog starts, if it's cwd it will be the current working directory
         file_filter:            If it's for example .py it will only list that type of files
         callback:               When the Ok button has pressed it will call the defined function
-        show_dir_size:          When true it will list the directories with the size of the directory and its sub-directories and files (reccomended to False)
+        show_dir_size:          When true it will list the directories with the size of the directory and its sub-directories and files (recommended to False)
         allow_drag:             When true it will allow to the user to drag the file or folder to a group
         multi_selection:        If true it will allow the user to select multiple files and folder
-        show_shortcuts_menu:    A child window containing different shortcuts (like desktop and downloads) and of the esternal and internal drives
+        show_shortcuts_menu:    A child window containing different shortcuts (like desktop and downloads) and of the external and internal drives
         no_resize:              When true the window will not be able to resize
         modal:                  A sort of popup effect (can cause problems when the file dialog is activated by a modal window)
         show_hidden_files:      Shows to the directory listing hidden files including folders
@@ -45,7 +45,7 @@ class FileDialog:
         default_path=os.getcwd(),
         file_filter=".*",
         callback=None,
-        show_dir_size=False, # NOTE: This argument is reccomended to set it to False, because it can take a while, probably hours or days, to calculate the size of the folder and it's sub-directories
+        show_dir_size=False, # NOTE: This argument is recommended to set it to False, because it can take a while, probably hours or days, to calculate the size of the folder and it's sub-directories
         allow_drag=True,
         multi_selection=True,
         show_shortcuts_menu=True,
@@ -260,11 +260,11 @@ class FileDialog:
 
             # Define the units and their respective sizes
             size_units = [
-                ("TB", 2**40),  # Tebibyte
-                ("GB", 2**30),  # Gibibyte
-                ("MB", 2**20),  # Mebibyte
-                ("KB", 2**10),  # Kibibyte
-                ("B", 1),        # Byte
+                ("TB", 2**40),  # Terabyte
+                ("GB", 2**30),  # Gigabyte
+                ("MB", 2**20),  # Megabyte
+                ("KB", 2**10),  # Kilobyte
+                ("B", 1),       # Byte
             ]
 
             # Determine the appropriate unit for formatting
@@ -319,7 +319,7 @@ class FileDialog:
         def open_file(sender, app_data, user_data):
             global last_click_time
             # Multi selection
-            if dpg.is_key_down(dpg.mvKey_Control):
+            if dpg.is_key_down(dpg.mvKey_LControl):
                 if dpg.get_value(sender) is True:
                     self.selected_files.append(user_data[1])
                 else:
@@ -520,7 +520,7 @@ class FileDialog:
 
         def _back(sender, app_data, user_data):
             global last_click_time
-            if dpg.is_key_down(dpg.mvKey_Control):
+            if dpg.is_key_down(dpg.mvKey_LControl):
                 dpg.set_value(sender, False)
             else:
                 dpg.set_value(sender, False)
