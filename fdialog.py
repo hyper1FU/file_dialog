@@ -19,6 +19,7 @@ class FileDialog:
         min_size:               Sets the file dialog minimum size.
         dirs_only:              When true it will only list directories.
         default_path:           The default path when file_dialog starts, if it's 'cwd' it will be the current working directory.
+        filter_list:            An array of different file extensions.
         file_filter:            If it's for example .py it will only list that type of files.
         callback:               When the Ok button has pressed it will call the defined function.
         show_dir_size:          When true it will list the directories with the size of the directory and its sub-directories and files (recommended to False).
@@ -30,7 +31,7 @@ class FileDialog:
         show_hidden_files:      Shows to the directory listing hidden files including folders.
         user_style:             Different graphical styles for file_dialog.
     Returns:
-        List
+        None
     """
     def __init__(
         self,
